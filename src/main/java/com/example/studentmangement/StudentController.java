@@ -22,34 +22,30 @@ public class StudentController {
     public String addstudent(@RequestBody Student student){
         return studentservice.addstudent(student);
     }
-//
-//    @GetMapping("/bypath/{q}")
-//    public Student getdetailusingpath(@PathVariable("q") int regNo){
-//        return db.get(regNo);
-//    }
-//
-//    @DeleteMapping("/delete")
-//    public String delete(@RequestParam("q") int regNo){
-//        db.remove(regNo);
-//        return "student deleted";
-//    }
-//
-//    @DeleteMapping("/deletebypath/{q}")
-//    public String deletebypath(@PathVariable("q") int regNo){
-//        db.remove(regNo);
-//        return "student deleted";
-//    }
-//
-//    @PutMapping("/put")
-//    public Student changecourse(@RequestParam("q") int regNo , @RequestParam("course") String course){
-//        db.get(regNo).setCourse(course);
-//        return db.get(regNo);
-//    }
-//
-//    @PutMapping("/putbypath/{q}/{co}")
-//    public Student chnagecourseusingpath(@PathVariable("q") int regNo , @PathVariable("co") String course){
-//        db.get(regNo).setCourse(course);
-//        return db.get(regNo);
-//    }
+
+    @GetMapping("/bypath/{q}")
+    public Student getdetailusingpath(@PathVariable("q") int regNo){
+        return studentservice.getdetailusingpath(regNo);
+    }
+
+    @DeleteMapping("/delete")
+    public String delete(@RequestParam("q") int regNo){
+        return studentservice.delete(regNo);
+    }
+
+    @DeleteMapping("/deletebypath/{q}")
+    public String deletebypath(@PathVariable("q") int regNo){
+        return studentservice.deletebypath(regNo);
+    }
+
+    @PutMapping("/put")
+    public Student changecourse(@RequestParam("q") int regNo , @RequestParam("course") String course){
+        return studentservice.changecourse(regNo,course);
+    }
+
+    @PutMapping("/putbypath/{q}/{co}")
+    public Student chnagecourseusingpath(@PathVariable("q") int regNo , @PathVariable("co") String course){
+        return studentservice.chnagecourseusingpath(regNo,course);
+    }
 
 }
